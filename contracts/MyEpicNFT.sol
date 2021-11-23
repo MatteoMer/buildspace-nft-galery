@@ -19,6 +19,8 @@ contract MyEpicNFT is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
+    event newNFTMinted(address sender, uint256 tokenId);
+
     constructor() ERC721("WordsNFT", "WRD") {
         console.log("This contract will mint a NFT, wow!");
     }
@@ -54,7 +56,6 @@ contract MyEpicNFT is ERC721URIStorage {
 
     function mintNFT() public {
         uint256 tokenId = _tokenIds.current();
-
         string memory finalWord = generateWord(tokenId);
         string memory finalSvg = string(abi.encodePacked(baseSvg, finalWord, "</text></svg>"));
         console.log(finalSvg);
@@ -64,8 +65,9 @@ contract MyEpicNFT is ERC721URIStorage {
         console.log(finalUri);
         _safeMint(msg.sender, tokenId);
         _setTokenURI(tokenId, finalUri);
-        _tokenIds.increment();
+        emit newNFTMinted(msg.sender, tokenId);
         console.log("An NFT w/ ID %s has been minted to %s", tokenId, msg.sender);
+        _tokenIds.increment();
     }
 
 }
