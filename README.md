@@ -1,15 +1,10 @@
-# Basic Sample Hardhat Project
+# NFT Minting project for buildspace.
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+https://buildspace-nft-galery.herokuapp.com/ **RINKEBY NETWORK ONLY**
 
-Try running some of the following tasks:
+## What is it ?
+Solidity contract that generate a fully on-chain NFT with words selected (pseudo) randomly.
+A great project to be introduced to NFT minting, SVG generation, and decentralization problems for NFT (without using IPFS)
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+## Front-end
+You can see the front end of this project [here](https://github.com/MatteoMer/buildspace-nft-galery-frontend)
